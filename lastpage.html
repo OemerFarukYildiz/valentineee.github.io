@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Thank You</title>
     <link rel="stylesheet" href="css/flower.css" />
   </head>
   <body>
-    <div id="thankyou"><b>Thank you for being my girlfriend</b></div>
+    <div id="thankyou"><b>I am gonna see you big dog</b></div>
+
     <div class="flower">
       <div class="f-wrapper">
         <div class="flower__line"></div>
@@ -19,9 +20,7 @@
           <div class="flower__leaf flower__leaf--5"></div>
           <div class="flower__leaf flower__leaf--6"></div>
           <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--yellow"
-          ></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--yellow"></div>
         </div>
       </div>
 
@@ -35,9 +34,7 @@
           <div class="flower__leaf flower__leaf--5"></div>
           <div class="flower__leaf flower__leaf--6"></div>
           <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--pink"
-          ></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--pink"></div>
         </div>
       </div>
 
@@ -51,12 +48,27 @@
           <div class="flower__leaf flower__leaf--5"></div>
           <div class="flower__leaf flower__leaf--6"></div>
           <div class="flower__leaf flower__leaf--7"></div>
-          <div
-            class="flower__leaf flower__leaf--8 flower__fall-down--purple"
-          ></div>
+          <div class="flower__leaf flower__leaf--8 flower__fall-down--purple"></div>
         </div>
       </div>
       <div class="flower__glass"></div>
     </div>
+
+    <form id="finalForm" action="https://formspree.io/f/mqaevoal" method="POST">
+      <input type="hidden" id="selectedDate" name="date" />
+      <input type="hidden" id="selectedFood" name="food" />
+      <input type="hidden" id="selectedDessert" name="dessert" />
+      <input type="hidden" id="selectedActivities" name="activities" />
+      <button type="submit" class="button">Send Choices ❤️</button>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("selectedDate").value = localStorage.getItem("selectedDate") || "No date selected";
+        document.getElementById("selectedFood").value = JSON.parse(localStorage.getItem("selectedFood"))?.join(", ") || "No food selected";
+        document.getElementById("selectedDessert").value = JSON.parse(localStorage.getItem("selectedDessert"))?.join(", ") || "No dessert selected";
+        document.getElementById("selectedActivities").value = JSON.parse(localStorage.getItem("selectedActivities"))?.join(", ") || "No activities selected";
+      });
+    </script>
   </body>
 </html>
